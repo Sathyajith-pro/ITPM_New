@@ -38,7 +38,16 @@ const productSchema = new mongoose.Schema({
         type : [String],
         required : true,
         default : ["https://www.shutterstock.com/image-vector/user-profile-icon-vector-avatar-600nw-2247726673.jpg"]
-    }
+    },
+    dateAdded: {
+        type: String,
+        required: true,
+        default: () => new Date().toISOString().split("T")[0], // Stores only YYYY-MM-DD
+      },
+      timeAdded: {
+        type: String,
+        required: true,
+      }
     
 })
 

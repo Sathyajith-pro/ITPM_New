@@ -33,7 +33,16 @@ const inquirySchema = new mongoose.Schema({
         type : Boolean,
         required : true,
         default :false //mulinma daddima resolve wela nane
-    }
+    },
+    dateAdded: {
+        type: String,
+        required: true,
+        default: () => new Date().toISOString().split("T")[0], // Stores only YYYY-MM-DD
+      },
+      timeAdded: {
+        type: String,
+        required: true,
+      }
 })
 
 const Inquiry = mongoose.model("Inquiry",inquirySchema);
